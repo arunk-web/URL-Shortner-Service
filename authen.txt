@@ -1,0 +1,19 @@
+Authentication has two patterns
+-statefull => which maintains state or data or server side 
+=> in this we give username and password to the user and in returns server gives me session id
+-stateless => has no state
+
+
+client ======> auth middleware ========>endpoint route
+              (checks for cookiie
+              value or uid, if valid
+              calls next() else 
+              rejects the request)
+
+
+
+
+
+
+
+
