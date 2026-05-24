@@ -1,4 +1,4 @@
-const {v4:uuidv4} = require('uuid');
+const {v4: uuidv4} = require('uuid');
 const User = require('../Models/user');
 const {setUser} = require('../service/auth')
 
@@ -14,7 +14,7 @@ async function handleUserSignup(req,res){
     });
     return res.redirect("/");
 }
-
+ 
 async function handleUserLogin(req,res){
     const {email,password} = req.body;
     //yha se hm login kr rhe haiii
@@ -25,9 +25,10 @@ async function handleUserLogin(req,res){
         });
     }
 
-    const sessionId = uuidv4();
-    setUser(sessionId,user)
-    res.cookie("uid",sessionId)
+    // const sessionId = uuidv4();    phle krte the session id generate krne ka haii but ab hm jwt token generate kr rhe haii
+    // setUser(sessionId,user)
+    const token = setUser(user)
+    res.cookie("uid",token)    //response me cookie send kiya and send  cookie name = uid
     return res.redirect("/");
 }
 

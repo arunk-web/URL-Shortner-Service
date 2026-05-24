@@ -1,6 +1,6 @@
 const express = require("express");
 const {connectToMongoDB} = require("./connect")
-
+const {restrictToLoggedInUserOnly, checkAuth} = require("./middlewares/auth")
 const URL = require("./Models/url")
 const path = require('path')         //BUILTIN 
 const cookieParser = require('cookie-parser')
@@ -34,9 +34,9 @@ app.use(cookieParser())
 //     });
 // });
 
-app.use("/url", urlRoute);
+app.use("/url", restrictToLoggedInUserOnly, urlRoute);
 app.use("/user",userRoute);
-app.use("/",staticRoute);
+app.use("/", checkAuth, staticRoute);
 
 app.get('/:shortId', async (req,res) => {
     const shortId = req.params.shortId;
