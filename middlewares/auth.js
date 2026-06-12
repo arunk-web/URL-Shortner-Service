@@ -5,12 +5,13 @@ const {getUser} = require("../service/auth")   //yha se ayegii id
 //soo this middleware will handle the authentication part of our application
 async function restrictToLoggedInUserOnly(req,res,next){
     // const userUid = req.cookies?.uid;   //It checks the uid whose name is uid 
-    const userUid = req.headers["Authorization"];
+    // const userUid = req.headers["Authorization"];
 
-    console.log(req.headers);
+    // console.log(req.headers);
+    const token = req.cookies?.uid;
 
-    if(!userUid) return res.redirect("/login");
-    const token = userUid.split("Bearer ")[1];       //"Bearer [2302ukdkkdnfn]"
+    if(!token) return res.redirect("/login");
+    // const token = userUid.split("Bearer ")[1];       //"Bearer [2302ukdkkdnfn]"
     const user = getUser(token);
 
     if(!user) return res.redirect("/login");
