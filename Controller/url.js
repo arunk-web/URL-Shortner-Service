@@ -17,7 +17,8 @@ async function handleGenerateNewShortURL(req,res){
     });
 
     return res.render("home", {
-        id : shortID
+        id : shortID,
+        baseUrl : process.env.BASE_URL || "http://localhost:8001"
     }); 
 
     // return res.redirect(`/?id=${shortID}`); 
