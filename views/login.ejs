@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
+    <!-- <style>
         body{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-    </style>
+    </style> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="/user/login" method="post">
-        <label>Email</label>
-        <input type="text" required name="email">
-        <label>Password</label>
-        <input type="password" required name="password">
+    <!-- <h1>Login</h1> -->
+    <%- include('partials/navbar') %>
 
-        <button type="submit">Login</button>
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <h2>Log in</h2>
+            <p class="subtitle">Welcome back,Enter your details</p>
+
+            <% if (locals.error) { %>
+                    <p class="error-msg"><%= Invalid Username or Password %></p>
+            <% } %>
+
+    <form action="/user/login" method="POST">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" required name="email" placeholder="Enter your email">
+
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" required name="password" placeholder="Enter your password">
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-submit">Log in</button>
+
+
     </form>
+    
+        <p class="auth-footer">
+            Don't have an account? <a href="/signup">Sign up</a>
+        </p>
+    </div>
+</div>
+
+
 </body>
 </html>

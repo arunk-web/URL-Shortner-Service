@@ -1,5 +1,5 @@
 const express = require('express')
-const {handleUserSignup,handleUserLogin} = require('../Controller/user');    //aise import hota haiii esme koi folder
+const {handleUserSignup,handleUserLogin,handleUserLogout} = require('../Controller/user');    //aise import hota haiii esme koi folder
 //esme login sign up wala kaam hoga
 const router = express.Router();
 // const {handleUserLogin} = require('../Controller/user');
@@ -8,6 +8,6 @@ const router = express.Router();
 router.post("/",handleUserSignup)    //upr import krke aise redirect krte haiii
 router.post("/login",handleUserLogin);
 
-
+router.get("/logout",handleUserLogout);
 
 module.exports = router;

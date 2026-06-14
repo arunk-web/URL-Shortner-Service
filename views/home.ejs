@@ -15,16 +15,19 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>URL Shortner</h1>  
+    <!-- <h1>URL Shortner</h1>   -->
+     <%- include('partials/navbar') %>
     <!-- this is called server side rendering -->
     <!-- backened se jo data aa rha hhh wo locals ke andr hota hai -->
-    <% if (locals.id) { %>     
+    <div class="home-wrapper">
+        <h1>URL Shortener</h1>
+
+        <% if (locals.id) { %>     
         <!-- ye id backend se aa rha hhh jo url generate krne ke baad milta hai    locals ke andr id haii   -->
-    <p>URL Generated : <%= baseUrl %>/<%= id %></p>
-    <% }  %> 
+        <p class="generated-url">URL Generated : <%= baseUrl %>/<%= id %></p>
+        <% }  %> 
     
-    
-    <div>
+    <div class="url-form">
         <form method= "POST" action="/url">
             <label>Enter Your Original URL</label>
             <input 
@@ -33,7 +36,7 @@
             placeholder="https://example.com"
             />
 
-            <button type="submit">Generate</button>
+            <button type="submit" class="btn btn-primary">Generate</button>
         </form>
     </div>
     
@@ -41,16 +44,18 @@
         <% if (locals.urls)  { %>
         <table>
             <thead>
-                <th>S. No</th>
-                <th>ShortID</th>
-                <th>Redirect</th>
-                <th>Clicks</th>
+                <tr>
+                    <th>S. No</th>
+                    <th>ShortID</th>
+                    <th>Redirect</th>
+                    <th>Clicks</th>
+                </tr>
             </thead>
             <tbody>
 
                 <% urls.forEach((url,index) => { %>
 
-                <tr>
+            tr>
 
                 <td><%= index+1 %> </td>
                 <td><%= url.shortId %></td>
@@ -62,6 +67,7 @@
 </table>
         
         <% }  %>
+        </div>
     </div>
 </body>
 </html>

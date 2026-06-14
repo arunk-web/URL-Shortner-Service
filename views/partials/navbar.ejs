@@ -1,0 +1,19 @@
+<nav class="navbar">
+    <a href="/" class="brand">ShortLink</a>
+    <div class="nav-links">
+        <a href="/">Home</a>
+
+        
+        <% if (locals.user) { %>
+            <span style="font-size : 14px; color: #5f5e5a;"> Hey, <%= user.email %></span>
+            <a href="/user/logout" class="btn">Logout</a>
+        <% } else { %>
+        <a href="/login" class="btn">Log in</a>
+        <a href="/signup" class="btn btn-primary">Create Account</a>
+        <% } %>
+
+         
+
+    </div>
+
+</nav>

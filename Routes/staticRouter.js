@@ -9,16 +9,21 @@ router.get("/", async (req,res) => {
     const allUrls = await URL.find({ createdBy : req.user._id });
     return res.render("home",{
         urls : allUrls,
+        user:req.user,
     }); 
 });
 
 
 router.get("/signup", (req,res) => {
-    return res.render("signup");
+    return res.render("signup",{
+        user: req.user,
+    });
 });
 
 router.get("/login", (req,res) => {
-    return res.render("login");
+    return res.render("login",{
+        user: req.user,
+    });
 });
 
 module.exports = router;

@@ -27,7 +27,7 @@ app.use(express.json());     //middleware
 app.use(express.urlencoded({extended : false}));   //middleware
 app.use(cookieParser())
 
-
+app.use(express.static(path.resolve("./public")))     //for serving css file
 
 //server side rendering   html page rendered from server
 // app.get("/test" , async (req,res) => {
