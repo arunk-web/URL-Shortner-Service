@@ -12,6 +12,7 @@ function setUser(user){
     return jwt.sign({
         _id : user._id,
         email : user.email,
+        name : user.name
     }, secret);
 } 
 //this part will mark token generate krne ka haii jo user ko milega login krne ke baad and us token me user ki information hogi jo hmne payload me daali haii

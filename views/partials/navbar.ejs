@@ -5,7 +5,7 @@
 
         
         <% if (locals.user) { %>
-            <span style="font-size : 14px; color: #5f5e5a;"> Hey, <%= user.email %></span>
+            <span style="font-size : 14px; color: #5f5e5a;"> Hey, <%= user.name %></span>
             <a href="/user/logout" class="btn">Logout</a>
         <% } else { %>
             <% if (currentPage !== 'login') { %>

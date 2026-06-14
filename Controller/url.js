@@ -16,9 +16,14 @@ async function handleGenerateNewShortURL(req,res){
         createdBy : req.user._id, 
     });
 
+    const allUrls = await URL.find({ createdBy : req.user._id });
+
     return res.render("home", {
         id : shortID,
-        baseUrl : process.env.BASE_URL || "http://localhost:8001"
+        baseUrl : process.env.BASE_URL || "http://localhost:8001",
+        urls : allUrls,
+        user : req.user,
+        currentPage: 'home',
     }); 
 
     // return res.redirect(`/?id=${shortID}`); 
