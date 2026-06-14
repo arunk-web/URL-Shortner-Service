@@ -10,6 +10,7 @@ router.get("/", async (req,res) => {
     return res.render("home",{
         urls : allUrls,
         user:req.user,
+        currentPage: 'home',
     }); 
 });
 
@@ -17,12 +18,14 @@ router.get("/", async (req,res) => {
 router.get("/signup", (req,res) => {
     return res.render("signup",{
         user: req.user,
+        currentPage: 'signup',
     });
 });
 
 router.get("/login", (req,res) => {
     return res.render("login",{
         user: req.user,
+        currentPage: 'login',
     });
 });
 
