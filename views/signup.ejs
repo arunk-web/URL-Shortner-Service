@@ -7,6 +7,7 @@
         }
     </style> -->
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
 </head>
@@ -20,7 +21,7 @@
             <p class="subtitle" > Sign up to start shortening Links</p>
 
             <% if (locals.error) { %>
-                <p class="error-msg"> <%= Invalid email or password %></p>
+                <p class="error-msg"> <%= error %></p>
             <% } %>
 
             <form action="/user" method="post">
