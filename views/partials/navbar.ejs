@@ -8,12 +8,12 @@
             <span style="font-size : 14px; color: #5f5e5a;"> Hey, <%= user.email %></span>
             <a href="/user/logout" class="btn">Logout</a>
         <% } else { %>
-        <a href="/login" class="btn">Log in</a>
-        <a href="/signup" class="btn btn-primary">Create Account</a>
+            <% if (currentPage !== 'login') { %>
+                <a href="/login" class="btn">Log in</a>
+            <% } %>
+            <% if (currentPage !== 'signup') { %>
+                <a href="/signup" class="btn btn-primary">Create Account</a>
+            <% } %>
         <% } %>
-
-         
-
     </div>
-
 </nav>
